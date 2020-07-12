@@ -5,6 +5,9 @@ from flask import request
 
 app = Flask(__name__)
 
+if __name__ == '__main__':
+    app.run(debug=True)
+
 @app.route('/')
 def index():
         return "Hello, World!"
@@ -12,9 +15,6 @@ def index():
 @app.route('/weather/api/v1.0/data/<int:task_id>', methods=['GET'])
 def get_tasks(task_id):
     return "hello" + str(task_id)
-
-if __name__ == '__main__':
-            app.run(debug=True)
 
 @app.route('/weather/api/v1.0/insert', methods=['POST'])
 def create_task():
